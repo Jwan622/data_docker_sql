@@ -1,4 +1,4 @@
-##To run the app
+## To run the app
 
 1. `brew install pipenv`
 2. `pipenv install`
