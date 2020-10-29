@@ -9,7 +9,7 @@ in another terminal, `cd` into the project folder and:
 6. inside the shell run: `python3 runner.py`
 - the above command forwards requests to port 8000 to 5432 internal to the postgres docker container. 
 - running the docker container will execute the `CreateTables.sql` script in the container.
-- running the `pyehon3 runner.py` command will populate the tables with rows.
+- running the `python3 runner.py` command will populate the tables with rows.
 
 ### To access the database:
 - `psql -h localhost -p 8000 -d postgres -U postgres --password`
@@ -58,7 +58,7 @@ So that's the driving motivation behind the `writer.py` code:
         cursor.execute(insert_query, records)
 ```
 
-When cleaning the data, I got rid of rows that didn't have complete data since there was only one row. It appears in one of the files, there was a NUL byte which I got rid of:
+When cleaning the data, there was a NUL byte which I got rid of:
 
 ```python
 def clean_records(file):
